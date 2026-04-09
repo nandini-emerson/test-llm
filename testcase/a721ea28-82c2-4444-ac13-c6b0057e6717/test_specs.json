@@ -1,0 +1,16 @@
+{
+  "name": "Integration - Azure AI Search Retrieval and LLM Orchestration",
+  "description": "Validates that the agent retrieves context from Azure AI Search and uses it in the LLM orchestration step.",
+  "test_type": "integration",
+  "input": "POST /crm/quote with valid input that triggers RAG retrieval (simulate embedding and search client if necessary).",
+  "output": "200 OK with success: true and data containing context-influenced response.",
+  "success_criteria": [
+    "AzureOpenAIEmbedding.embed_query is called with the user query",
+    "AzureAISearchRetriever.retrieve_context returns context chunks",
+    "LLM receives context in its prompt",
+    "Final response includes expected fields and reflects context"
+  ],
+  "error_scenarios": [
+    "Embedding or search client errors (should be handled gracefully with empty context)"
+  ]
+}
