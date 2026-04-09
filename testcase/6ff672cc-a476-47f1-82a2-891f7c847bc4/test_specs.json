@@ -1,0 +1,17 @@
+{
+  "name": "Functional - Successful CRM Quote Creation",
+  "description": "Validates the end-to-end workflow for a successful CRM quote creation via the /crm/quote endpoint with all required fields present and valid.",
+  "test_type": "functional",
+  "input": "POST /crm/quote with valid JSON body containing customerEmailId, receivedDateTime, and a valid lineItems array.",
+  "output": "200 OK with success: true and data containing status: PASS, quoteId, quoteOrderId, timestamps, and validationSummary.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "Response JSON contains 'success': true",
+    "Response data contains 'status': 'PASS'",
+    "Response data includes 'quoteId', 'quoteOrderId', and 'timestamps'",
+    "No errors or missingInputs in response"
+  ],
+  "error_scenarios": [
+    "None for this positive path"
+  ]
+}
