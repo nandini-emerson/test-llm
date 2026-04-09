@@ -1,0 +1,11 @@
+[
+  {
+    "id": "test_1",
+    "name": "test_agent.py::test_functional_successful_crm_quote_creation",
+    "description": "Test: test_agent.py::test_functional_successful_crm_quote_creation",
+    "type": "functional",
+    "status": "skipped",
+    "duration": 0.0,
+    "error": null
+  }
+]
