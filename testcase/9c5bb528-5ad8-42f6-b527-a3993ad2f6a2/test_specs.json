@@ -1,0 +1,17 @@
+{
+  "name": "Functional - Input Validation Failure (Missing Required Fields)",
+  "description": "Ensures the API returns a structured failure response when required fields (e.g., customerEmailId) are missing.",
+  "test_type": "functional",
+  "input": "POST /crm/quote with JSON missing customerEmailId and/or receivedDateTime.",
+  "output": "200 OK with success: true and data containing status: FAIL, errors, and missingInputs indicating missing fields.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "Response JSON contains 'success': true",
+    "Response data contains 'status': 'FAIL'",
+    "Response data includes 'errors' and 'missingInputs' listing missing fields",
+    "No quoteId or quoteOrderId present"
+  ],
+  "error_scenarios": [
+    "None for this negative path (handled as business logic)"
+  ]
+}
