@@ -1,0 +1,16 @@
+{
+  "name": "Functional - Malformed JSON Input Handling",
+  "description": "Ensures the API returns a clear error when the request body contains malformed JSON.",
+  "test_type": "functional",
+  "input": "POST /crm/quote with invalid JSON (e.g., missing closing brace).",
+  "output": "400 Bad Request with error_type: 'MalformedJSON' and appropriate error message.",
+  "success_criteria": [
+    "HTTP status code is 400",
+    "Response JSON contains 'success': false",
+    "Response contains 'error_type': 'MalformedJSON'",
+    "Response contains a helpful 'tips' field"
+  ],
+  "error_scenarios": [
+    "JSONDecodeError or similar parsing exception"
+  ]
+}
