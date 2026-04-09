@@ -1,0 +1,16 @@
+{
+  "name": "Integration - Duplicate Request Detection",
+  "description": "Tests that the idempotency service prevents duplicate quote creation for the same requestId and correlationId.",
+  "test_type": "integration",
+  "input": "Two consecutive POST /crm/quote requests with identical requestId and correlationId.",
+  "output": "First request succeeds; second returns a failure with DuplicateRequestError.",
+  "success_criteria": [
+    "First response is success with status: PASS",
+    "Second response is failure with status: FAIL or error_type: 'DuplicateRequestError'",
+    "Second response contains appropriate error message about duplicate request"
+  ],
+  "error_scenarios": [
+    "DuplicateRequestError raised",
+    "Second request blocked by idempotency logic"
+  ]
+}
