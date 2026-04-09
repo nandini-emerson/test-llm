@@ -1,0 +1,40 @@
+=== PYTEST EXECUTION LOG ===
+
+Exit Code: 1
+
+STDOUT:
+============================= test session starts =============================
+platform win32 -- Python 3.13.4, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\nandevi\AppData\Local\Temp\test_venv_exec_zxbp2nwv\venv\Scripts\python.exe
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.4', 'Platform': 'Windows-11-10.0.22631-SP0', 'Packages': {'pytest': '9.0.3', 'pluggy': '1.6.0'}, 'Plugins': {'anyio': '4.13.0', 'asyncio': '1.3.0', 'json-report': '1.5.0', 'metadata': '3.1.1'}}
+rootdir: C:\Users\nandevi\AppData\Local\Temp\test_venv_exec_zxbp2nwv
+configfile: pytest.ini
+plugins: anyio-4.13.0, asyncio-1.3.0, json-report-1.5.0, metadata-3.1.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 1 item
+
+test_agent.py::test_functional_successful_crm_quote_creation ERROR       [100%]
+
+=================================== ERRORS ====================================
+_______ ERROR at setup of test_functional_successful_crm_quote_creation _______
+
+    @pytest.fixture
+    def client():
+        """
+        Fixture for a test client.
+        Replace this with the actual test client for your web framework (e.g., Flask, FastAPI).
+        """
+        from fastapi.testclient import TestClient
+>       from main import app  # Replace with your actual app import
+        ^^^^^^^^^^^^^^^^^^^^
+E       ModuleNotFoundError: No module named 'main'
+
+test_agent.py:53: ModuleNotFoundError
+--------------------------------- JSON report ---------------------------------
+report saved to: C:\Users\nandevi\AppData\Local\Temp\test_venv_exec_zxbp2nwv\pytest_report.json
+=========================== short test summary info ===========================
+ERROR test_agent.py::test_functional_successful_crm_quote_creation - ModuleNo...
+============================== 1 error in 0.70s ===============================
+
+
+STDERR:
