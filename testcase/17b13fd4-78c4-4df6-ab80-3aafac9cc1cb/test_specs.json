@@ -1,0 +1,16 @@
+{
+  "name": "Integration - Business Rule Failure (Ineligible Customer)",
+  "description": "Tests that the agent returns a failure response when the business rule engine marks a customer as ineligible.",
+  "test_type": "integration",
+  "input": "POST /crm/quote with customerEmailId set to 'ineligible@example.com' and all other required fields valid.",
+  "output": "200 OK with success: true and data containing status: FAIL, errors indicating ineligibility, and missingInputs.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "Response data contains 'status': 'FAIL'",
+    "Response data includes error about customer ineligibility",
+    "No quoteId or quoteOrderId present"
+  ],
+  "error_scenarios": [
+    "BusinessRuleViolation handled as business logic"
+  ]
+}
